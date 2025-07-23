@@ -1,0 +1,38 @@
+{
+  "ApplicationName": "TalonIntegrationAPI",
+  "PackageStructure": "com.talon.integrationapi",
+  "Dependencies": [
+    "Spring Boot Starter Web",
+    "Spring Boot Starter Data JPA",
+    "Spring Boot Starter Security",
+    "Spring Boot Starter Validation",
+    "Springdoc OpenAPI UI",
+    "H2 Database"
+  ],
+  "RestEndpoints": [
+    {"Method": "PUT", "Path": "/v2/customer_sessions/{customerSessionId}", "Description": "Update or create a customer session"},
+    {"Method": "GET", "Path": "/v2/customer_sessions/{customerSessionId}", "Description": "Get customer session details"},
+    {"Method": "POST", "Path": "/v2/customer_sessions/{customerSessionId}/returns", "Description": "Return cart items"},
+    {"Method": "PUT", "Path": "/v2/customer_sessions/{customerSessionId}/reopen", "Description": "Reopen a closed customer session"},
+    {"Method": "PUT", "Path": "/v2/customer_profiles/{integrationId}", "Description": "Update or create a customer profile"},
+    {"Method": "PUT", "Path": "/v2/customer_profiles", "Description": "Update multiple customer profiles"},
+    {"Method": "POST", "Path": "/v2/audiences", "Description": "Create audience"},
+    {"Method": "DELETE", "Path": "/v2/audiences/{audienceId}", "Description": "Delete audience"},
+    {"Method": "PUT", "Path": "/v2/audiences/{audienceId}", "Description": "Update audience name"},
+    {"Method": "DELETE", "Path": "/v2/audiences/{audienceId}/memberships", "Description": "Delete audience memberships"},
+    {"Method": "POST", "Path": "/v2/customer_audiences", "Description": "Update multiple customer profiles' audiences"},
+    {"Method": "PUT", "Path": "/v2/audience_customers/{audienceId}/attributes", "Description": "Update profile attributes for all customers in audience"},
+    {"Method": "POST", "Path": "/v2/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/link_profile", "Description": "Link customer profile to card"},
+    {"Method": "POST", "Path": "/v2/events", "Description": "Track event"}
+  ],
+  "DatabaseConfigurations": {
+    "DatabaseType": "H2",
+    "URL": "jdbc:h2:mem:talondb",
+    "Username": "sa",
+    "Password": "password"
+  },
+  "SecurityFeatures": {
+    "Authentication": "API Key (Header: Authorization)",
+    "Authorization": "Role-based via Spring Security"
+  }
+}
