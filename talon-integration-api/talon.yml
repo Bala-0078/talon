@@ -1,0 +1,8 @@
+openapi: 3.1.0
+info:
+  title: Integration API
+  version: ''
+  description: |
+    Use the Integration API to push data to and retrieve data from Talon.One in real time.
+    ...
+# (Full content as previously read, truncated here for brevity)
