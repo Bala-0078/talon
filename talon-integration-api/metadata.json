@@ -1,0 +1,47 @@
+{
+  "ApplicationName": "TalonIntegrationAPI",
+  "PackageStructure": "com.example.talonintegrationapi",
+  "Dependencies": [
+    "Spring Web",
+    "Spring Data JPA",
+    "H2 Database",
+    "Spring Security",
+    "Spring Boot Starter Validation",
+    "Springdoc OpenAPI UI"
+  ],
+  "RestEndpoints": [
+    {"Method": "PUT", "Path": "/v2/customer_sessions/{customerSessionId}", "Description": "Update or create a customer session"},
+    {"Method": "GET", "Path": "/v2/customer_sessions/{customerSessionId}", "Description": "Get customer session details"},
+    {"Method": "POST", "Path": "/v2/customer_sessions/{customerSessionId}/returns", "Description": "Return cart items"},
+    {"Method": "PUT", "Path": "/v2/customer_sessions/{customerSessionId}/reopen", "Description": "Reopen a closed customer session"},
+    {"Method": "PUT", "Path": "/v2/customer_profiles/{integrationId}", "Description": "Update or create a customer profile"},
+    {"Method": "PUT", "Path": "/v2/customer_profiles", "Description": "Update multiple customer profiles"},
+    {"Method": "POST", "Path": "/v2/audiences", "Description": "Create audience"},
+    {"Method": "DELETE", "Path": "/v2/audiences/{audienceId}", "Description": "Delete audience"},
+    {"Method": "PUT", "Path": "/v2/audiences/{audienceId}", "Description": "Update audience name"},
+    {"Method": "DELETE", "Path": "/v2/audiences/{audienceId}/memberships", "Description": "Delete audience memberships"},
+    {"Method": "POST", "Path": "/v2/customer_audiences", "Description": "Update multiple customer profiles' audiences"},
+    {"Method": "PUT", "Path": "/v2/audience_customers/{audienceId}/attributes", "Description": "Update profile attributes for all customers in audience"},
+    {"Method": "POST", "Path": "/v2/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/link_profile", "Description": "Link customer profile to card"},
+    {"Method": "POST", "Path": "/v2/events", "Description": "Track event"},
+    {"Method": "POST", "Path": "/v1/referrals", "Description": "Create referral code for an advocate"},
+    {"Method": "POST", "Path": "/v1/referrals_for_multiple_advocates", "Description": "Create referral codes for multiple advocates"},
+    {"Method": "DELETE", "Path": "/v1/customer_data/{integrationId}", "Description": "Delete customer's personal data"},
+    {"Method": "POST", "Path": "/v1/coupon_reservations/{couponValue}", "Description": "Create coupon reservation"},
+    {"Method": "DELETE", "Path": "/v1/coupon_reservations/{couponValue}", "Description": "Delete coupon reservations"},
+    {"Method": "GET", "Path": "/v1/coupon_reservations/customerprofiles/{couponValue}", "Description": "List customers that have this coupon reserved"},
+    {"Method": "GET", "Path": "/v1/customer_profiles/{integrationId}/inventory", "Description": "List customer data"},
+    {"Method": "GET", "Path": "/v1/customer_profiles/{integrationId}/achievements", "Description": "List customer's available achievements"},
+    {"Method": "GET", "Path": "/v1/customer_profiles/{integrationId}/achievements/{achievementId}", "Description": "List customer's achievement history"}
+  ],
+  "DatabaseConfigurations": {
+    "DatabaseType": "H2",
+    "URL": "jdbc:h2:mem:talondb",
+    "Username": "sa",
+    "Password": ""
+  },
+  "SecurityFeatures": {
+    "Authentication": "API Key (Header: Authorization)",
+    "Authorization": "Role-based (Spring Security)"
+  }
+}
