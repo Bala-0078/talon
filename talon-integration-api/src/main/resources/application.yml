@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+talon:
+  api-key: "YOUR_TALON_ONE_API_KEY"
+  base-url: "https://yourbaseurl.talon.one"
